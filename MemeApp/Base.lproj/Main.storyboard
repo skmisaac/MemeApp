@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZMo-Kw-JUv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,30 +33,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Qa-Nr8">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Album" id="cFG-5f-NfU">
-                                        <connections>
-                                            <action selector="pickAnImageFromAlbum" destination="vXZ-lx-hvc" id="ePO-Iu-9r0"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="58m-Nb-a4y"/>
-                                    <barButtonItem systemItem="camera" id="VFu-r2-w4F">
-                                        <connections>
-                                            <action selector="pickAnImageFromCamera" destination="vXZ-lx-hvc" id="sgX-NJ-ivV"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-lX-DLb">
-                                <rect key="frame" x="0.0" y="113" width="600" height="432"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-lX-DLb">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfG-vV-10W">
-                                <rect key="frame" x="252" y="156" width="97" height="30"/>
+                                <rect key="frame" x="38" y="99" width="525" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9id-lL-Zp2"/>
-                                    <constraint firstAttribute="width" constant="97" id="Iw7-zZ-H5v"/>
+                                    <constraint firstAttribute="height" constant="46" id="K4s-kl-Ke6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -64,53 +49,52 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVG-6S-kY6">
-                                <rect key="frame" x="252" y="492" width="97" height="30"/>
+                                <rect key="frame" x="38" y="469" width="525" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RQb-uS-fq5"/>
+                                    <constraint firstAttribute="height" constant="53" id="E2F-t9-hWN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKy-Up-7lO">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="action" id="FCL-BD-jqs">
-                                        <connections>
-                                            <action selector="share" destination="vXZ-lx-hvc" id="OKV-wo-CkN"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c2f-gb-Iw1"/>
-                                    <barButtonItem title="Cancel" id="fr3-nj-UQa">
-                                        <connections>
-                                            <action selector="cancel" destination="vXZ-lx-hvc" id="xth-Ii-ujP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zfG-vV-10W" firstAttribute="leading" secondItem="oVG-6S-kY6" secondAttribute="leading" id="3AQ-fg-hUX"/>
-                            <constraint firstItem="zfG-vV-10W" firstAttribute="trailing" secondItem="oVG-6S-kY6" secondAttribute="trailing" id="5nT-rp-ogE"/>
-                            <constraint firstItem="MhA-lX-DLb" firstAttribute="trailing" secondItem="sKy-Up-7lO" secondAttribute="trailing" id="6Zj-I9-crO"/>
-                            <constraint firstItem="MhA-lX-DLb" firstAttribute="top" secondItem="sKy-Up-7lO" secondAttribute="bottom" constant="5" id="7kG-uX-TJI"/>
-                            <constraint firstItem="MhA-lX-DLb" firstAttribute="leading" secondItem="hR4-Qa-Nr8" secondAttribute="leading" id="BaL-u2-Nim"/>
-                            <constraint firstItem="hR4-Qa-Nr8" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="DOH-wR-u82"/>
-                            <constraint firstItem="zfG-vV-10W" firstAttribute="top" secondItem="sKy-Up-7lO" secondAttribute="bottom" constant="48" id="OHK-S7-ypV"/>
-                            <constraint firstAttribute="trailing" secondItem="MhA-lX-DLb" secondAttribute="trailing" id="Rno-yz-K76"/>
-                            <constraint firstItem="sKy-Up-7lO" firstAttribute="leading" secondItem="MhA-lX-DLb" secondAttribute="leading" id="Tlk-ax-bNY"/>
-                            <constraint firstItem="hR4-Qa-Nr8" firstAttribute="top" secondItem="MhA-lX-DLb" secondAttribute="bottom" constant="11" id="asl-mb-up2"/>
-                            <constraint firstItem="sKy-Up-7lO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="nnI-V0-h1A"/>
-                            <constraint firstItem="hR4-Qa-Nr8" firstAttribute="top" secondItem="oVG-6S-kY6" secondAttribute="bottom" constant="34" id="oxF-VO-bk4"/>
-                            <constraint firstItem="oVG-6S-kY6" firstAttribute="centerX" secondItem="hR4-Qa-Nr8" secondAttribute="centerX" id="qMP-oO-Kte"/>
-                            <constraint firstItem="hR4-Qa-Nr8" firstAttribute="trailing" secondItem="MhA-lX-DLb" secondAttribute="trailing" id="zD4-cI-4NQ"/>
-                            <constraint firstItem="MhA-lX-DLb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="zIO-hA-bh1"/>
+                            <constraint firstItem="zfG-vV-10W" firstAttribute="trailing" secondItem="oVG-6S-kY6" secondAttribute="trailing" id="3Gp-9K-0g9"/>
+                            <constraint firstItem="oVG-6S-kY6" firstAttribute="centerX" secondItem="MhA-lX-DLb" secondAttribute="centerX" id="5ni-A4-YRJ"/>
+                            <constraint firstItem="zfG-vV-10W" firstAttribute="leading" secondItem="oVG-6S-kY6" secondAttribute="leading" id="Msw-cE-5YH"/>
+                            <constraint firstItem="zfG-vV-10W" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="35" id="Ovv-Gp-g2Z"/>
+                            <constraint firstAttribute="trailing" secondItem="MhA-lX-DLb" secondAttribute="trailing" id="Uxk-cX-pyf"/>
+                            <constraint firstItem="MhA-lX-DLb" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="YbY-ML-vNn"/>
+                            <constraint firstItem="zfG-vV-10W" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="22" id="dpl-RU-CMg"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="oVG-6S-kY6" secondAttribute="bottom" constant="34" id="g3Z-jZ-9HU"/>
+                            <constraint firstItem="MhA-lX-DLb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="jw7-a8-xF6"/>
+                            <constraint firstItem="MhA-lX-DLb" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="t7c-4q-Mku"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ucX-BJ-n8J"/>
+                    <toolbarItems>
+                        <barButtonItem title="Album" id="3LD-LR-jMc">
+                            <connections>
+                                <action selector="pickAnImageFromAlbum" destination="vXZ-lx-hvc" id="W52-b5-XPS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="n9T-6Q-BQE"/>
+                        <barButtonItem systemItem="camera" id="Hi1-hn-F1g">
+                            <connections>
+                                <action selector="pickAnImageFromCamera" destination="vXZ-lx-hvc" id="Zf3-wK-Vke"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="ucX-BJ-n8J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="FCL-BD-jqs">
+                            <connections>
+                                <action selector="share" destination="vXZ-lx-hvc" id="OKV-wo-CkN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomTextField" destination="oVG-6S-kY6" id="ZZV-R5-GlJ"/>
-                        <outlet property="cameraButton" destination="VFu-r2-w4F" id="cpi-hL-OCq"/>
+                        <outlet property="cameraButton" destination="Hi1-hn-F1g" id="rJH-mS-8Qj"/>
                         <outlet property="imageView" destination="MhA-lX-DLb" id="fd9-cz-yTS"/>
                         <outlet property="shareButton" destination="FCL-BD-jqs" id="Idf-n7-wlv"/>
                         <outlet property="topTextField" destination="zfG-vV-10W" id="XcJ-EB-aI8"/>

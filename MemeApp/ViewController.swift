@@ -31,14 +31,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
-    @IBAction func cancel() {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func share() {
         var memedImage = generateMemedImage()
 
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityController.completionWithItemsHandler = { activity, success, item, error in
+            self.save()
+        }
         self.presentViewController(activityController, animated: true, completion: nil)
     }
     
@@ -52,6 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setToolbarHidden(false, animated: false)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         shareButton.enabled = false
         
@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : 2.5
+            NSStrokeWidthAttributeName : -3.0
         ]
         
         topTextField.delegate                 = self
@@ -127,8 +127,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
 
     // Create a UIImage that combines the Image View and the Textfields
     func generateMemedImage() -> UIImage {
-        self.navigationController!.setNavigationBarHidden(true, animated: false)
-        self.navigationController!.setToolbarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setToolbarHidden(true, animated: false)
 
         // render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -136,8 +136,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.navigationController!.setNavigationBarHidden(false, animated: false)
-        self.navigationController!.setToolbarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setToolbarHidden(false, animated: false)
         return memedImage
     }
 }
