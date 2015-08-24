@@ -8,13 +8,19 @@
 
 import UIKit
 
+//  This table view loads stored Meme image in the AppDelegate
+
 class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var memes: ([Meme]!)
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         memes = ((UIApplication.sharedApplication().delegate) as! AppDelegate).memes
+        tableView.delegate = self
+        tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource delegate methods

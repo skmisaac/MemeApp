@@ -2,13 +2,16 @@
 //  MemesEditorViewController.swift
 //  MemeApp
 //
-//  This is the Meme Editor View for user to input text at top and bottom of the image
-//  Can share the Memed image with the stock share function provided by UIKit
+
 //
 //  Created by SUN Ka Meng Isaac on 18/6/15.
 //  Copyright (c) 2015 SUN Ka Meng Isaac. All rights reserved.
 
 import UIKit
+
+
+//  This is the Meme Editor View for user to input text at top and bottom of the image
+//  Can share the Memed image with the stock share function provided by UIKit
 
 class MemesEditorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate {
 
@@ -92,6 +95,11 @@ class MemesEditorViewController: UIViewController, UITextFieldDelegate, UIImageP
         presentViewController(activityController, animated: true, completion: nil)
     }
     
+    
+
+    
+    // MARK: - Helper functions
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
@@ -100,7 +108,6 @@ class MemesEditorViewController: UIViewController, UITextFieldDelegate, UIImageP
         }
     }
     
-    // MARK: - Helper functions
     
     func save() {
         var meme = Meme( topText: topTextField.text!,

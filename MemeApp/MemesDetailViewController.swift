@@ -8,18 +8,26 @@
 
 import UIKit
 
+//  This view shows up when user clicks the annotated thumbnail from table view or collection view
 class MemesDetailViewController: UIViewController {
-
-    var meme: Meme?
-    @IBOutlet weak var memedImageView: UIImageView!
+    
+    var meme: Meme!
+    @IBOutlet var memedImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.hidden = true
-        memedImageView.image = meme?.memedImage
+ 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.hidden = true
+        memedImageView.image = meme.memedImage
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         tabBarController?.tabBar.hidden = false
     }
+    
 }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Store Meme text, annotated and original image
 struct Meme {
     var topText: String
     var bottomText: String
